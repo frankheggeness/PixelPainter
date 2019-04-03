@@ -54,21 +54,24 @@ function createCanvasGrid(width, depth){
       box.className = 'pixels'
       box.id = y+'-'+x;
       box.innerHTML = '';
-      column.appendChild(box)
-      box.addEventListener('click', setColor)
+      column.appendChild(box);
+      box.addEventListener('click', setColor);
+      box.addEventListener('mousedown', downMouse);
+      box.addEventListener('mouseover', dragColor);
+      box.addEventListener('mouseup', noDrag);
       box.style.backgroundColor = 'white'
       // box.addEventListener('click', painting.setColor)
 
     }
   }
-  painter.style.width = (50*width) + 'px'
-  painter.style.height = (50*depth) + 'px';
+  painter.style.width = (10*width) + 'px'
+  painter.style.height = (10*depth) + 'px';
 
   let findpix1 = document.getElementsByClassName('pixels1')
   console.log(findpix1)
   
 }
-createCanvasGrid(5, 6);
+// createCanvasGrid(20, 20);
 // make paint grid below
 function createPaintGrid(width, depth){
   let artSupplies = document.getElementById('artSupplies');
@@ -113,6 +116,27 @@ function setColor(){
   this.style.backgroundColor = paintColor ;
 }
 
+let mouseDown = false;
+
+function downMouse(){
+  console.log('hi')
+  this.style.backgroundColor = paintColor;
+ mouseDown = true;
+  return mouseDown;
+}
+
+function dragColor(){
+  
+  if(mouseDown === true){
+    this.style.backgroundColor = paintColor;
+    
+  }
+}
+
+function noDrag(){
+  mouseDown = false;
+}
+
 // button events below
 clear.addEventListener('click', eraseEverything);
 function eraseEverything(){
@@ -126,3 +150,26 @@ function eraseSome(){
   paintColor = 'white';
 }
 
+document.body.addEventListener('mouseup', noDrag);
+
+submitDim.addEventListener('click', submitDimensions)
+function submitDimensions(){
+  let heightDim = heightChange.value;
+  let widthDim = widthChange.value;
+  createCanvasGrid(heightDim, widthDim)
+}
+
+// title event
+let title =document.getElementById('title');
+function changeTitleColor(){
+
+  title.style.color = randomColor();
+}
+title.addEventListener('mouseover', titleColor);
+function titleColor(){
+  
+  // setInterval(changeTitleColor, 1000)
+  title.style.color = randomColor();
+  
+  
+}

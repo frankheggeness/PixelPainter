@@ -2,21 +2,31 @@
 
 <head>
   <link href="css/PixelPainter.css" rel="stylesheet" media="screen" />
+  <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
 </head>
 
 <body>
-  <div id='title'>Pixel Painter!</div>
+  <div id='title'>Pixel Painter u feke!</div>
   <div id="canvas">
     <div id="pixelPainter"></div>
   </div>
-  
+
 
   <div id="paintBox">
     <div id="artSupplies"></div>
     <button id="clear" class="buttons">Clear dis shi </button>
     <button id="erase" class="buttons">like erase some shi?</button>
   </div>
+  <div id='inputBox' class='dimChange'><label for="height">Choose canvas height:</label>
+
+    <input type="text" id="heightChange" name="height" required minlength="1" maxlength="8" size="10"></div>
   
+    <div id='inputBox' class='dimChange'><label for="width">Choose canvas width:</label>
+
+    <input type="text" id="widthChange" name="width" required minlength="1" maxlength="8" size="10"></div>
+
+    <button id="submitDim" class='buttons'>Create Canvas!</button>
+
   <script src="js/PixelPainter.js"></script>
 </body>
 

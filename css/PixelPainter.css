@@ -5,7 +5,9 @@ body{
 #title{
   display: inline-flex;
   text-align: center;
-  font-size: 30px;
+  font-size: 60px;
+  font-family: 'Pacifico', cursive;
+  color: black;
 }
 .pixels{
   background: white;
@@ -15,8 +17,8 @@ body{
     font-size: 1.5em;
     text-align: center;
     /* flex: 1 0 100px; */
-    width: 50px;
-    height:50px;
+    width: 10px;
+    height:10px;
     border-style: solid;
     border-width: 1px;
     border-color: black;
@@ -53,6 +55,7 @@ body{
    /* border-width: 5px; */
    /* border-color: black; */
     line-height:30px;
+
 }
 .column{
   display: table-column;
@@ -79,7 +82,15 @@ body{
 .buttons{
   font-size: 24px;
   transition-duration: 0.4s;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 .buttons:hover{
   color:white;
+}
+.dimChange{
+  font-size: 20px;
+}
+
+#paintBox{
+  display: 
 }
