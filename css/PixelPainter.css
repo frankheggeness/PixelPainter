@@ -1,0 +1,85 @@
+body{
+  display: block;
+  text-align: center;
+}
+#title{
+  display: inline-flex;
+  text-align: center;
+  font-size: 30px;
+}
+.pixels{
+  background: white;
+    /* margin: 5px; */
+    color: white;
+    font-weight: bold;
+    font-size: 1.5em;
+    text-align: center;
+    /* flex: 1 0 100px; */
+    width: 50px;
+    height:50px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    background-color: white;
+}
+.paintPixels{
+  background: white;
+    /* margin: 5px; */
+    color: white;
+    font-weight: bold;
+    font-size: 1.5em;
+    text-align: center;
+    /* flex: 1 0 100px; */
+    width: 50px;
+    height:50px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+}
+#artSupplies{
+  display: inline-flexbox;
+  /* padding: 0; */
+    /* margin: 0; */
+    /* list-style: none; */
+    /* display: -webkit-box; */
+    /* display: -moz-box; */
+    /* display: -ms-flexbox; */
+    /* display: -webkit-flex; */
+    display: flex;
+    /* -webkit-flex-flow: row; */
+    /* justify-content: space-around; */
+    /* width: 500 px; */
+   /* border-style: solid; */
+   /* border-width: 5px; */
+   /* border-color: black; */
+    line-height:30px;
+}
+.column{
+  display: table-column;
+  height: auto;
+}
+#pixelPainter{
+  display: inline-flexbox;
+  /* padding: 0; */
+    /* margin: 0; */
+    /* list-style: none; */
+    /* display: -webkit-box; */
+    /* display: -moz-box; */
+    /* display: -ms-flexbox; */
+    /* display: -webkit-flex; */
+    display: flex;
+    /* -webkit-flex-flow: row; */
+    /* justify-content: space-around; */
+    /* width: 500 px; */
+   /* border-style: solid; */
+   /* border-width: 5px; */
+   /* border-color: black; */
+    line-height:30px;
+}
+.buttons{
+  font-size: 24px;
+  transition-duration: 0.4s;
+}
+.buttons:hover{
+  color:white;
+}
