@@ -60,16 +60,18 @@ function createCanvasGrid(width, depth) {
       box.addEventListener('mousedown', downMouse);
       box.addEventListener('mouseover', dragColor);
       box.addEventListener('mouseup', noDrag);
-      box.style.backgroundColor = 'white'
+      // box.style.backgroundColor = 'white'
       // box.addEventListener('click', painting.setColor)
 
     }
   }
   painter.style.width = (10 * width) + 'px'
-  painter.style.height = (10 * depth) + 'px';
+  // painter.style.height = (10 * depth) + 'px';
 
-  let findpix1 = document.getElementsByClassName('pixels1')
-  console.log(findpix1)
+  
+
+
+  
 
 }
 // createCanvasGrid(20, 20);
@@ -93,14 +95,15 @@ function createPaintGrid(width, depth) {
 
     }
   }
-  artSupplies.style.width = (50 * width) + 'px'
-  artSupplies.style.height = (50 * depth) + 'px';
+  
 
   let findpix1 = document.getElementsByClassName('pixels1')
   console.log(findpix1)
 
 }
 createPaintGrid(4, 4)
+
+
 // // grab color from pallette below
 let paintColor = 'black'
 function grabColor() {
@@ -148,7 +151,7 @@ function eraseEverything() {
 }
 erase.addEventListener('click', eraseSome);
 function eraseSome() {
-  paintColor = 'white';
+  paintColor = 'white'
 }
 
 document.body.addEventListener('mouseup', noDrag);
@@ -158,7 +161,10 @@ function submitDimensions() {
   let heightDim = heightChange.value;
   let widthDim = widthChange.value;
   createCanvasGrid(heightDim, widthDim)
+  document.getElementById('paintBox').style.display = 'block'
+  document.getElementById('makeCanvasButtons').style.display = 'none'
 }
+
 
 // title event
 let title = document.getElementById('title');
@@ -167,6 +173,8 @@ function changeTitleColor() {
   title.style.color = randomColor();
 }
 title.addEventListener('mouseover', titleColor);
+
+
 function titleColor() {
 
   // setInterval(changeTitleColor, 1000)

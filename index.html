@@ -2,30 +2,36 @@
 
 <head>
   <link href="css/PixelPainter.css" rel="stylesheet" media="screen" />
-  <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Pacifico|Baloo+Chettan" rel="stylesheet">
 </head>
 
 <body>
-  <div id='title'>Welcome to Pixel Painter!</div>
+  <div id='title'> Welcome to Pixel Painter!</div>
   <div id="canvas">
     <div id="pixelPainter"></div>
   </div>
 
 
   <div id="paintBox">
-    <div id="artSupplies"></div>
+    <div id="chooseColors">Choose your paint color below!</div>
+    <div id="artSupplies">
+
+    </div>
     <button id="clear" class="buttons">Clear </button>
     <button id="erase" class="buttons">Erase</button>
   </div>
-  <div id='inputBox' class='dimChange'><label for="height">Choose canvas height:</label>
+  <div id="makeCanvasButtons">
+    <div id='inputBox' class='dimChange'><label for="height">Choose canvas height:</label>
 
-    <input type="text" id="heightChange" name="height" required minlength="1" maxlength="8" size="10"></div>
+      <input type="text" id="heightChange" name="height" required minlength="1" maxlength="8" size="10"></div>
 
-  <div id='inputBox' class='dimChange'><label for="width">Choose canvas width:</label>
+    <div id='inputBox' class='dimChange'><label for="width">Choose canvas width:</label>
 
-    <input type="text" id="widthChange" name="width" required minlength="1" maxlength="8" size="10"></div>
+      <input type="text" id="widthChange" name="width" required minlength="1" maxlength="8" size="10"></div>
 
-  <button id="submitDim" class='buttons'>Create Canvas!</button>
+    <button id="submitDim" class='buttons'>Create Canvas!</button>
+  </div>
+
 
   <script src="js/PixelPainter.js"></script>
 </body>
