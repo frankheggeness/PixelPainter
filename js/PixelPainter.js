@@ -53,13 +53,14 @@ function createCanvasGrid(width, depth) {
 
       let box = document.createElement('div');
       box.className = 'pixels'
-      box.id = y + '-' + x;
+      box.id = y + ',' + x;
       box.innerHTML = '';
       column.appendChild(box);
       box.addEventListener('click', setColor);
       box.addEventListener('mousedown', downMouse);
       box.addEventListener('mouseover', dragColor);
       box.addEventListener('mouseup', noDrag);
+      box.addEventListener('click', fillSpace)
       // box.style.backgroundColor = 'white'
       // box.addEventListener('click', painting.setColor)
 
@@ -75,7 +76,7 @@ function createCanvasGrid(width, depth) {
 
 }
 // createCanvasGrid(20, 20);
-// make paint grid below
+// make random color paint grid below
 function createPaintGrid(width, depth) {
   let artSupplies = document.getElementById('artSupplies');
   for (let y = 0; y < depth; y++) {
@@ -86,23 +87,52 @@ function createPaintGrid(width, depth) {
 
       let box = document.createElement('div');
       box.className = 'paintPixels'
+      box.id = 'paint' + y + ',' + x;
+      box.style.backgroundColor = randomColor();
+      column.appendChild(box)
+
+      box.addEventListener('click', grabColor)
+      box.addEventListener('click', newRandom)
+      // box.addEventListener('click', painting.grabColor)
+
+    }
+  }
+}
+
+// create static color paint grid
+createPaintGrid1(3,2)
+createPaintGrid(4, 4)
+
+function createPaintGrid1(width, depth) {
+  let staticSupplies = document.getElementById('staticSupplies');
+  for (let y = 0; y < depth; y++) {
+    let column = document.createElement('div')
+    staticSupplies.appendChild(column)
+    column.class = 'column'
+    for (let x = 0; x < width; x++) {
+
+      let box = document.createElement('div');
+      box.className = 'paintPixelsStatic'
       box.id = 'paint' + y + '-' + x;
       box.style.backgroundColor = randomColor();
       column.appendChild(box)
 
       box.addEventListener('click', grabColor)
+      
       // box.addEventListener('click', painting.grabColor)
 
     }
   }
+  let boxes = document.getElementsByClassName('paintPixelsStatic');
+  boxes[0].style.backgroundColor = 'black';
+  boxes[1].style.backgroundColor = '#0066ff';
+  boxes[2].style.backgroundColor = 'red';
+  boxes[3].style.backgroundColor = 'yellow';
+  boxes[4].style.backgroundColor = 'green';
+  boxes[5].style.backgroundColor = 'orange';
   
 
-  let findpix1 = document.getElementsByClassName('pixels1')
-  console.log(findpix1)
-
 }
-createPaintGrid(4, 4)
-
 
 // // grab color from pallette below
 let paintColor = 'black'
@@ -110,14 +140,16 @@ function grabColor() {
   paintColor = this.style.backgroundColor;
   erase.style.backgroundColor = paintColor;
   clear.style.backgroundColor = paintColor;
+  randomize.style.backgroundColor = paintColor;
   console.log(paintColor)
   return paintColor;
 }
 
 // // set color of pixel function below
 function setColor() {
-
+if(fillClicked===false){
   this.style.backgroundColor = paintColor;
+}
 }
 
 let mouseDown = false;
@@ -165,6 +197,32 @@ function submitDimensions() {
   document.getElementById('makeCanvasButtons').style.display = 'none'
 }
 
+randomize.addEventListener('click', randomizeColor);
+let randomClicked = false
+
+function randomizeColor(){
+  randomClicked = true;
+}
+
+function newRandom(){
+  if(randomClicked === true){
+  this.style.backgroundColor = randomColor();
+  console.log('testtt')
+  randomClicked = false;
+  }
+  
+}
+
+let fillClicked = false;
+function fillIsClicked(){
+  if(fillClicked !== true){
+    fillClicked = true;
+  }else{
+    fillClicked = false;
+  }
+  console.log(fillClicked)
+}
+fill.addEventListener('click', fillIsClicked);
 
 // title event
 let title = document.getElementById('title');
@@ -181,4 +239,33 @@ function titleColor() {
   title.style.color = randomColor();
 
 
+}
+
+// fill event
+
+function fillSpace(){
+  if(fillClicked===true){
+  const spaceColor = this.style.backgroundColor;
+
+let i = 1
+  i
+ 
+}
+}
+
+
+// let beginningPixelId = this.id;
+//   let nextColor = this.style.backgroundColor;
+//   let beginningPixelIdArrayStr = beginningPixelId.split(',');
+//   let beginningPixelIdArrayNum = [parseInt(beginningPixelIdArrayStr[0]), parseInt(beginningPixelIdArrayStr[1])];
+//   let upcomingColor = this.style.backgroundColor;
+save.addEventListener('click',saveFunction);
+let saveObject = {};
+function saveFunction(){
+  let findPixels = document.getElementsByClassName('pixels');
+  for(let i=0;i<findPixels.length;i++){
+    let pixkey = findPixels[i].id
+    saveObject[pixkey] = findPixels[i].style.backgroundColor;
+  }
+  console.log(saveObject);
 }

@@ -13,12 +13,17 @@
 
 
   <div id="paintBox">
-    <div id="chooseColors">Choose your paint color below!</div>
-    <div id="artSupplies">
-
+    <div id="chooseColors" class='directionText'>Choose your paint color below!</div>
+    <div id='directions' class="directionText">(Core colors on right, random colors on left) </div>
+    <div id="suppliesHere">
+        <div id='artSupplies'></div>
+        <div id="staticSupplies"></div>
     </div>
     <button id="clear" class="buttons">Clear </button>
     <button id="erase" class="buttons">Erase</button>
+    <button id="randomize" class='buttons'>Randomize</button>
+    <button id="fill" class='buttons'>Fill</button>
+    <button id="save" class='buttons'>Save Canvas</button>
   </div>
   <div id="makeCanvasButtons">
     <div id='inputBox' class='dimChange'><label for="height">Choose canvas height:</label>
@@ -35,5 +40,9 @@
 
   <script src="js/PixelPainter.js"></script>
 </body>
+
+<footer>
+  <p></p>
+</footer>
 
 </html>
