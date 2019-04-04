@@ -16,8 +16,8 @@
     <div id="chooseColors" class='directionText'>Choose your paint color below!</div>
     <div id='directions' class="directionText">(Core colors on right, random colors on left) </div>
     <div id="suppliesHere">
-        <div id='artSupplies'></div>
-        <div id="staticSupplies"></div>
+      <div id='artSupplies'></div>
+      <div id="staticSupplies"></div>
     </div>
     <button id="clear" class="buttons">Clear </button>
     <button id="erase" class="buttons">Erase</button>
@@ -25,6 +25,7 @@
     <button id="fill" class='buttons'>Fill</button>
     <button id="save" class='buttons'>Save Canvas</button>
   </div>
+  <div id='loadBox'><input id='loadingText' type="text"></div>
   <div id="makeCanvasButtons">
     <div id='inputBox' class='dimChange'><label for="height">Choose canvas height:</label>
 
@@ -35,6 +36,14 @@
       <input type="text" id="widthChange" name="width" required minlength="1" maxlength="8" size="10"></div>
 
     <button id="submitDim" class='buttons'>Create Canvas!</button>
+    <div class='dimChange'>Or...</div>
+
+    <div id='loadInputTag' class='dimChange'><label for="width">Paste canvas code:</label>
+
+      <input type="text" id="loadInput" name="loadInput" required minlength="1" size="10"></div>
+
+      <button id="loadButton" class='buttons'>Load Canvas!</button>
+
   </div>
 
 

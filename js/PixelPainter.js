@@ -195,6 +195,7 @@ function submitDimensions() {
   createCanvasGrid(heightDim, widthDim)
   document.getElementById('paintBox').style.display = 'block'
   document.getElementById('makeCanvasButtons').style.display = 'none'
+  document.getElementById('loadBox').style.display = 'block';
 }
 
 randomize.addEventListener('click', randomizeColor);
@@ -260,12 +261,32 @@ let i = 1
 //   let beginningPixelIdArrayNum = [parseInt(beginningPixelIdArrayStr[0]), parseInt(beginningPixelIdArrayStr[1])];
 //   let upcomingColor = this.style.backgroundColor;
 save.addEventListener('click',saveFunction);
-let saveObject = {};
+let saveArray = [];
 function saveFunction(){
   let findPixels = document.getElementsByClassName('pixels');
+  saveArray.push(heightChange.value);
+  saveArray.push(widthChange.value);
   for(let i=0;i<findPixels.length;i++){
-    let pixkey = findPixels[i].id
-    saveObject[pixkey] = findPixels[i].style.backgroundColor;
+    if(findPixels[i].style.backgroundColor === ''){
+      saveArray.push('white')
+    }else{
+    saveArray.push(findPixels[i].style.backgroundColor)
+    }
   }
-  console.log(saveObject);
+  
+  loadingText.value = saveArray;
+}
+loadButton.addEventListener('click', loadPreviousCanvas);
+
+function loadPreviousCanvas(){
+  let loadCode = loadInput.value;
+  let loadCodeArray = loadCode.split(',');
+  console.log(loadCodeArray)
+  createCanvasGrid(loadCodeArray[0], loadCodeArray[1]);
+  loadCodeArray.splice(0,2)
+  let findPix = document.getElementsByClassName('pixels');
+  for(var i=0;i<findPix.length;i++){
+    findPix[i].style.backgroundColor = loadCodeArray[i]
+  }
+  console.log(loadCodeArray);
 }

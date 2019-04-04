@@ -134,3 +134,7 @@ body{
     /* margin-right: auto; */
     /* margin-left: auto; */
 }
+#loadBox{
+  display: none;
+  justify-content: center;
+}
