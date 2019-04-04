@@ -89,10 +89,34 @@ function createPaintGrid(width, depth) {
 }
 
 // create static color paint grid
-createPaintGrid1(4, 4);
+createPaintGridStatic(4, 4);
+
+// create favorite colors div
+function createFavColors(width, depth) {
+  let favSupplies = document.getElementById("favSupplies");
+  for (let y = 0; y < depth; y++) {
+    let column = document.createElement("div");
+    favSupplies.appendChild(column);
+    column.class = "column";
+    for (let x = 0; x < width; x++) {
+      let box = document.createElement("div");
+      box.className = "favPixels";
+      box.id = "favPaint" + y + "," + x;
+      box.style.backgroundColor = "white";
+      column.appendChild(box);
+
+      box.addEventListener("click", grabColor);
+      box.addEventListener("click", newFav);
+      // box.addEventListener("click", newRandom);
+      // box.addEventListener('click', painting.grabColor)
+    }
+  }
+}
+createFavColors(2, 3);
+
 createPaintGrid(4, 4);
 
-function createPaintGrid1(width, depth) {
+function createPaintGridStatic(width, depth) {
   let staticSupplies = document.getElementById("staticSupplies");
   for (let y = 0; y < depth; y++) {
     let column = document.createElement("div");
@@ -132,16 +156,20 @@ function createPaintGrid1(width, depth) {
 // // grab color from pallette below
 let paintColor = "black";
 function grabColor() {
-  paintColor = this.style.backgroundColor;
-  erase.style.backgroundColor = paintColor;
-  clear.style.backgroundColor = paintColor;
-  randomize.style.backgroundColor = paintColor;
-  fill.style.backgroundColor = paintColor;
-  save.style.backgroundColor = paintColor;
-  title.style.color = paintColor;
-  randomizeAllButton.style.backgroundColor = paintColor;
-  console.log(paintColor);
-  return paintColor;
+  if (favClicked === false) {
+    paintColor = this.style.backgroundColor;
+    erase.style.backgroundColor = paintColor;
+    clear.style.backgroundColor = paintColor;
+    randomize.style.backgroundColor = paintColor;
+    fill.style.backgroundColor = paintColor;
+    save.style.backgroundColor = paintColor;
+    title.style.color = paintColor;
+    randomizeAllButton.style.backgroundColor = paintColor;
+    grabFavorite.style.backgroundColor = paintColor;
+    help.style.backgroundColor = paintColor;
+    console.log(paintColor);
+    return paintColor;
+  }
 }
 
 // // set color of pixel function below
@@ -283,4 +311,20 @@ function loadPreviousCanvas() {
   document.getElementById("makeCanvasButtons").style.display = "none";
   document.getElementById("loadBox").style.display = "block";
   document.getElementById("directions1").style.display = "block";
+}
+
+// favorite color event below
+let favClicked = false;
+
+grabFavorite.addEventListener("click", favisClicked);
+
+function favisClicked() {
+  favClicked = true;
+}
+
+function newFav() {
+  if (favClicked === true) {
+    this.style.backgroundColor = paintColor;
+    favClicked = false;
+  }
 }
