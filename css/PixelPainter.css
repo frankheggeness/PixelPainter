@@ -1,94 +1,108 @@
-body{
+body {
   display: block;
   text-align: center;
-  background-image: url('https://www.chicagocanvas.com/wp-content/uploads/2015/05/White-10-oz-Canvas.jpg');
+  background-image: url("https://www.chicagocanvas.com/wp-content/uploads/2015/05/White-10-oz-Canvas.jpg");
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
-#title{
+#title {
   display: flex;
   text-align: center;
   justify-content: center;
   font-size: 60px;
-  font-family: 'Pacifico', cursive;
+  font-family: "Pacifico", cursive;
   color: black;
   transition-duration: 0.4s;
   text-shadow: 2px 2px whitesmoke;
 }
-.pixels{
-    font-weight: bold;
-    font-size: 1.5em;
-    text-align: center;
-    width: 10px;
-    height:10px;
-    border-style: solid;
-    border-width: 1px;
-    border-color: black;
-    background-color: white;
-
-    
+.pixels {
+  font-weight: bold;
+  font-size: 1.5em;
+  text-align: center;
+  width: 10px;
+  height: 10px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  background-color: white;
 }
-.paintPixels{
+.paintPixels {
   background: white;
-    color: white;
-    font-weight: bold;
-    font-size: 1.5em;
-    text-align: center;
-    width: 50px;
-    height:50px;
-    border-style: solid;
-    border-width: 1px;
-    border-color: black;
-    border-radius: 10%;
+  color: white;
+  font-weight: bold;
+  font-size: 1.5em;
+  text-align: center;
+  width: 50px;
+  height: 50px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  border-radius: 10%;
 }
-#artSupplies{
-    display: flex;
-    display: flex;
+#artSupplies {
+  display: flex;
+  display: flex;
   justify-content: center;
-    /* -webkit-flex-flow: row; */
-    /* justify-content: space-around; */
-    /* width: 500 px; */
-   /* border-style: solid; */
-   /* border-width: 5px; */
-   /* border-color: black; */
-    line-height:30px;
-    /* margin-right: auto; */
-    /* margin-left: auto; */
-
+  /* -webkit-flex-flow: row; */
+  /* justify-content: space-around; */
+  /* width: 500 px; */
+  /* border-style: solid; */
+  /* border-width: 5px; */
+  /* border-color: black; */
+  line-height: 30px;
+  /* margin-right: auto; */
+  /* margin-left: auto; */
 }
-.column{
+.column {
   display: table-column;
   height: auto;
 }
-#pixelPainter{
+#pixelPainter {
   display: inline-flexbox;
-    display: flex;
-    line-height:30px;
-    
+  display: flex;
+  line-height: 30px;
 }
-.buttons{
+.buttons {
   font-size: 24px;
   transition-duration: 0.4s;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-  font-family: 'Baloo Chettan', cursive;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  font-family: "Baloo Chettan", cursive;
   border-radius: 20%;
-}
-.buttons:hover{
-  color:white;
-}
-.dimChange{
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #ffffff;
+  text-align: center;
   font-size: 20px;
-  font-family: 'Baloo Chettan', cursive;
+  padding: 20px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+.buttons:hover {
+  color: white;
+}
+.dimChange {
+  font-size: 20px;
+  font-family: "Baloo Chettan", cursive;
+}
+.dimInput {
+  /* width: 100%; */
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  font-family: "Baloo Chettan", cursive;
+  font-size: 20px;
+  text-align: center;
 }
 
-#paintBox{
+#paintBox {
   /* display: block; */
   display: none;
-  
 }
-#canvas{
+#canvas {
   display: flex;
   justify-content: center;
   border: solid 2px black;
@@ -97,47 +111,56 @@ body{
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover; */
-  background-color: #fbebd0
+  background-color: #fbebd0;
+  border-radius: 10%;
 }
-.directionText{
+.directionText {
   font-size: 25px;
-  font-family: 'Baloo Chettan', cursive;
+  font-family: "Baloo Chettan", cursive;
 }
-#directions{
+#directions1 {
   font-size: 15px;
+  display: none;
 }
-.paintPixelsStatic{
+.paintPixelsStatic {
   background: white;
-    color: white;
-    font-weight: bold;
-    font-size: 1.5em;
-    text-align: center;
-    width: 50px;
-    height:50px;
-    border-style: solid;
-    border-width: 1px;
-    border-color: black;
-    border-radius: 10%;
+  color: white;
+  font-weight: bold;
+  font-size: 1.5em;
+  text-align: center;
+  width: 50px;
+  height: 50px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  border-radius: 10%;
 }
-#suppliesHere{
+#suppliesHere {
   display: flex;
   justify-content: space-around;
 }
-#staticSupplies{
+#staticSupplies {
   display: flex;
-    display: flex;
+  display: flex;
   justify-content: center;
-    /* -webkit-flex-flow: row; */
-    /* justify-content: space-around; */
-    /* width: 500 px; */
-   /* border-style: solid; */
-   /* border-width: 5px; */
-   /* border-color: black; */
-    line-height:30px;
-    /* margin-right: auto; */
-    /* margin-left: auto; */
+  /* -webkit-flex-flow: row; */
+  /* justify-content: space-around; */
+  /* width: 500 px; */
+  /* border-style: solid; */
+  /* border-width: 5px; */
+  /* border-color: black; */
+  line-height: 30px;
+  /* margin-right: auto; */
+  /* margin-left: auto; */
 }
-#loadBox{
+#loadBox {
   display: none;
   justify-content: center;
+}
+#loadInput {
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  font-family: "Baloo Chettan", cursive;
+  font-size: 20px;
 }
