@@ -255,33 +255,53 @@ let i = 1
 }
 
 
-// let beginningPixelId = this.id;
-//   let nextColor = this.style.backgroundColor;
-//   let beginningPixelIdArrayStr = beginningPixelId.split(',');
-//   let beginningPixelIdArrayNum = [parseInt(beginningPixelIdArrayStr[0]), parseInt(beginningPixelIdArrayStr[1])];
-//   let upcomingColor = this.style.backgroundColor;
+// save and load below
 save.addEventListener('click',saveFunction);
 let saveArray = [];
-function saveFunction(){
-  let findPixels = document.getElementsByClassName('pixels');
-  saveArray.push(heightChange.value);
-  saveArray.push(widthChange.value);
-  for(let i=0;i<findPixels.length;i++){
-    if(findPixels[i].style.backgroundColor === ''){
-      saveArray.push('white')
-    }else{
-    saveArray.push(findPixels[i].style.backgroundColor)
-    }
-  }
+// function saveFunction(){
+//   let findPixels = document.getElementsByClassName('pixels');
+//   saveArray.push(heightChange.value);
+//   saveArray.push(widthChange.value);
+//   for(let i=0;i<findPixels.length;i++){
+//     if(findPixels[i].style.backgroundColor === ''){
+//       saveArray.push('white')
+//     }else{
+//     saveArray.push(findPixels[i].style.backgroundColor)
+//     }
+//   }
   
-  loadingText.value = saveArray;
-}
+//   loadingText.value = saveArray;
+// }
 loadButton.addEventListener('click', loadPreviousCanvas);
+
+// function loadPreviousCanvas(){
+//   let loadCode = loadInput.value;
+//   let loadCodeArray = loadCode.split(',');
+//   console.log(loadCodeArray)
+//   createCanvasGrid(loadCodeArray[0], loadCodeArray[1]);
+//   loadCodeArray.splice(0,2)
+//   let findPix = document.getElementsByClassName('pixels');
+//   for(var i=0;i<findPix.length;i++){
+//     findPix[i].style.backgroundColor = loadCodeArray[i]
+//   }
+//   console.log(loadCodeArray);
+// }
+let saveObject = {}
+function saveFunction(){
+  saveObject.width = widthChange.value;
+  saveObject.height = heightChange.value;
+  let findPixels = document.getElementsByClassName('pixels');
+  for(var i=0;i<findPixels.length;i++){
+    saveObject[findPixels[i].id] = findPixels[i].style.backgroundColor;
+  }
+  const saveObjectStr = JSON.stringify(saveObject);
+  loadingText.value = saveObjectStr;
+}
 
 function loadPreviousCanvas(){
   let loadCode = loadInput.value;
-  let loadCodeArray = loadCode.split(',');
-  console.log(loadCodeArray)
+  let loadCodeObj = JSON.parse(loadCode);
+  let loadCodeArray =   Object.values(loadCodeObj)
   createCanvasGrid(loadCodeArray[0], loadCodeArray[1]);
   loadCodeArray.splice(0,2)
   let findPix = document.getElementsByClassName('pixels');
