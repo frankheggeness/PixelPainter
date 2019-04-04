@@ -197,3 +197,10 @@ body {
   /* margin-right: auto; */
   /* margin-left: auto; */
 }
+#helpBox {
+  display: none;
+}
+#helpText {
+  font-size: 25px;
+  font-family: "Baloo Chettan", cursive;
+}

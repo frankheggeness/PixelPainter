@@ -223,6 +223,26 @@ function submitDimensions() {
   document.getElementById("loadBox").style.display = "block";
   document.getElementById("directions1").style.display = "block";
 }
+// help button below
+
+help.addEventListener("click", showHelp);
+function showHelp() {
+  document.getElementById("canvas").style.display = "none";
+  document.getElementById("paintBox").style.display = "none";
+  document.getElementById("helpBox").style.display = "block";
+  document.getElementById("loadBox").style.display = "none";
+  document.getElementById("directions1").style.display = "none";
+}
+
+goBack.addEventListener("click", goBackCanvas);
+
+function goBackCanvas() {
+  document.getElementById("canvas").style.display = "flex";
+  document.getElementById("paintBox").style.display = "block";
+  document.getElementById("helpBox").style.display = "none";
+  document.getElementById("loadBox").style.display = "block";
+  document.getElementById("directions1").style.display = "block";
+}
 
 randomize.addEventListener("click", randomizeColor);
 let randomClicked = false;
