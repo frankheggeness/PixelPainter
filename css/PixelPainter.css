@@ -41,6 +41,7 @@ body{
     border-style: solid;
     border-width: 1px;
     border-color: black;
+    border-radius: 10%;
 }
 #artSupplies{
     display: flex;
@@ -72,6 +73,7 @@ body{
   transition-duration: 0.4s;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   font-family: 'Baloo Chettan', cursive;
+  border-radius: 20%;
 }
 .buttons:hover{
   color:white;
@@ -115,6 +117,7 @@ body{
     border-style: solid;
     border-width: 1px;
     border-color: black;
+    border-radius: 10%;
 }
 #suppliesHere{
   display: flex;

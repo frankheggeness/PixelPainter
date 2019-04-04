@@ -69,10 +69,10 @@ function createCanvasGrid(width, depth) {
   painter.style.width = (10 * width) + 'px'
   // painter.style.height = (10 * depth) + 'px';
 
-  
 
 
-  
+
+
 
 }
 // createCanvasGrid(20, 20);
@@ -100,7 +100,7 @@ function createPaintGrid(width, depth) {
 }
 
 // create static color paint grid
-createPaintGrid1(3,2)
+createPaintGrid1(4, 4)
 createPaintGrid(4, 4)
 
 function createPaintGrid1(width, depth) {
@@ -118,19 +118,29 @@ function createPaintGrid1(width, depth) {
       column.appendChild(box)
 
       box.addEventListener('click', grabColor)
-      
+
       // box.addEventListener('click', painting.grabColor)
 
     }
   }
   let boxes = document.getElementsByClassName('paintPixelsStatic');
   boxes[0].style.backgroundColor = 'black';
-  boxes[1].style.backgroundColor = '#0066ff';
-  boxes[2].style.backgroundColor = 'red';
+  boxes[1].style.backgroundColor = 'gray';
+  boxes[2].style.backgroundColor = 'chocolate';
   boxes[3].style.backgroundColor = 'yellow';
   boxes[4].style.backgroundColor = 'green';
   boxes[5].style.backgroundColor = 'orange';
-  
+  boxes[6].style.backgroundColor = 'aquamarine';
+  boxes[7].style.backgroundColor = 'magenta';
+  boxes[8].style.backgroundColor = 'dodgerblue';
+  boxes[9].style.backgroundColor = 'maroon';
+  boxes[10].style.backgroundColor = 'forestgreen';
+  boxes[11].style.backgroundColor = 'orangered';
+  boxes[12].style.backgroundColor = 'orchid';
+  boxes[13].style.backgroundColor = 'seagreen';
+  boxes[14].style.backgroundColor = 'gold';
+  boxes[15].style.backgroundColor = 'crimson';
+
 
 }
 
@@ -141,15 +151,19 @@ function grabColor() {
   erase.style.backgroundColor = paintColor;
   clear.style.backgroundColor = paintColor;
   randomize.style.backgroundColor = paintColor;
+  fill.style.backgroundColor = paintColor;
+  save.style.backgroundColor = paintColor;
+  title.style.color = paintColor;
+  randomizeAllButton.style.backgroundColor = paintColor;
   console.log(paintColor)
   return paintColor;
 }
 
 // // set color of pixel function below
 function setColor() {
-if(fillClicked===false){
-  this.style.backgroundColor = paintColor;
-}
+  if (fillClicked === false) {
+    this.style.backgroundColor = paintColor;
+  }
 }
 
 let mouseDown = false;
@@ -201,29 +215,37 @@ function submitDimensions() {
 randomize.addEventListener('click', randomizeColor);
 let randomClicked = false
 
-function randomizeColor(){
+function randomizeColor() {
   randomClicked = true;
 }
 
-function newRandom(){
-  if(randomClicked === true){
-  this.style.backgroundColor = randomColor();
-  console.log('testtt')
-  randomClicked = false;
+function newRandom() {
+  if (randomClicked === true) {
+    this.style.backgroundColor = randomColor();
+    console.log('testtt')
+    randomClicked = false;
   }
-  
+
 }
 
 let fillClicked = false;
-function fillIsClicked(){
-  if(fillClicked !== true){
+function fillIsClicked() {
+  if (fillClicked !== true) {
     fillClicked = true;
-  }else{
+  } else {
     fillClicked = false;
   }
   console.log(fillClicked)
 }
 fill.addEventListener('click', fillIsClicked);
+let randomizeIt = document.getElementById('randomizeAllButton')
+randomizeIt.addEventListener('click',randomizeAll)
+function randomizeAll(){
+  let findPaintPixels = document.getElementsByClassName('paintPixels')
+  for(let i=0;i<findPaintPixels.length;i++){
+    findPaintPixels[i].style.backgroundColor = randomColor();
+  }
+}
 
 // title event
 let title = document.getElementById('title');
@@ -244,69 +266,44 @@ function titleColor() {
 
 // fill event
 
-function fillSpace(){
-  if(fillClicked===true){
-  const spaceColor = this.style.backgroundColor;
+function fillSpace() {
+  if (fillClicked === true) {
+    const spaceColor = this.style.backgroundColor;
 
-let i = 1
-  i
- 
-}
+    let i = 1
+    i
+
+  }
 }
 
 
 // save and load below
-save.addEventListener('click',saveFunction);
-let saveArray = [];
-// function saveFunction(){
-//   let findPixels = document.getElementsByClassName('pixels');
-//   saveArray.push(heightChange.value);
-//   saveArray.push(widthChange.value);
-//   for(let i=0;i<findPixels.length;i++){
-//     if(findPixels[i].style.backgroundColor === ''){
-//       saveArray.push('white')
-//     }else{
-//     saveArray.push(findPixels[i].style.backgroundColor)
-//     }
-//   }
-  
-//   loadingText.value = saveArray;
-// }
+save.addEventListener('click', saveFunction);
 loadButton.addEventListener('click', loadPreviousCanvas);
 
-// function loadPreviousCanvas(){
-//   let loadCode = loadInput.value;
-//   let loadCodeArray = loadCode.split(',');
-//   console.log(loadCodeArray)
-//   createCanvasGrid(loadCodeArray[0], loadCodeArray[1]);
-//   loadCodeArray.splice(0,2)
-//   let findPix = document.getElementsByClassName('pixels');
-//   for(var i=0;i<findPix.length;i++){
-//     findPix[i].style.backgroundColor = loadCodeArray[i]
-//   }
-//   console.log(loadCodeArray);
-// }
 let saveObject = {}
-function saveFunction(){
+function saveFunction() {
   saveObject.width = widthChange.value;
   saveObject.height = heightChange.value;
   let findPixels = document.getElementsByClassName('pixels');
-  for(var i=0;i<findPixels.length;i++){
+  for (var i = 0; i < findPixels.length; i++) {
     saveObject[findPixels[i].id] = findPixels[i].style.backgroundColor;
   }
   const saveObjectStr = JSON.stringify(saveObject);
   loadingText.value = saveObjectStr;
 }
 
-function loadPreviousCanvas(){
+function loadPreviousCanvas() {
   let loadCode = loadInput.value;
   let loadCodeObj = JSON.parse(loadCode);
-  let loadCodeArray =   Object.values(loadCodeObj)
+  let loadCodeArray = Object.values(loadCodeObj)
   createCanvasGrid(loadCodeArray[0], loadCodeArray[1]);
-  loadCodeArray.splice(0,2)
+  loadCodeArray.splice(0, 2)
   let findPix = document.getElementsByClassName('pixels');
-  for(var i=0;i<findPix.length;i++){
+  for (var i = 0; i < findPix.length; i++) {
     findPix[i].style.backgroundColor = loadCodeArray[i]
   }
-  console.log(loadCodeArray);
+  document.getElementById('paintBox').style.display = 'block'
+  document.getElementById('makeCanvasButtons').style.display = 'none'
+  document.getElementById('loadBox').style.display = 'block';
 }
