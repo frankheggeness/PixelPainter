@@ -1,11 +1,12 @@
 body {
   display: block;
   text-align: center;
-  background-image: url("https://www.chicagocanvas.com/wp-content/uploads/2015/05/White-10-oz-Canvas.jpg");
+  /* background-image: url("https://www.chicagocanvas.com/wp-content/uploads/2015/05/White-10-oz-Canvas.jpg");
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;
+  background-size: cover; */
+  background-color: antiquewhite;
 }
 #title {
   display: flex;
