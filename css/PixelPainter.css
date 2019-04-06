@@ -1,0 +1,209 @@
+body {
+  display: block;
+  text-align: center;
+  /* background-image: url("https://www.chicagocanvas.com/wp-content/uploads/2015/05/White-10-oz-Canvas.jpg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; */
+  background-color: rgb(221, 233, 255);
+}
+#title {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  font-size: 60px;
+  font-family: "Pacifico", cursive;
+  color: #f4511e;
+  transition-duration: 0.4s;
+  text-shadow: 2px 2px black;
+}
+
+.pixels {
+  font-weight: bold;
+  font-size: 1.5em;
+  text-align: center;
+  width: 10px;
+  height: 10px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: grey;
+  background-color: white;
+}
+.paintPixels {
+  background: white;
+  color: white;
+  font-weight: bold;
+  font-size: 1.5em;
+  text-align: center;
+  width: 50px;
+  height: 50px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  border-radius: 10%;
+}
+#artSupplies {
+  display: flex;
+  display: flex;
+  justify-content: center;
+  /* -webkit-flex-flow: row; */
+  /* justify-content: space-around; */
+  /* width: 500 px; */
+  /* border-style: solid; */
+  /* border-width: 5px; */
+  /* border-color: black; */
+  line-height: 30px;
+  /* margin-right: auto; */
+  /* margin-left: auto; */
+}
+.column {
+  display: table-column;
+  height: auto;
+}
+#pixelPainter {
+  display: inline-flexbox;
+  display: flex;
+  line-height: 30px;
+}
+.buttons {
+  font-size: 24px;
+  transition-duration: 0.4s;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-shadow: 2px 2px 2px black;
+  font-family: "Baloo Chettan", cursive;
+  border-radius: 20%;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #ffffff;
+  text-align: center;
+  font-size: 20px;
+  padding: 20px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+.buttons:hover {
+  color: white;
+}
+.dimChange {
+  font-size: 20px;
+  font-family: "Baloo Chettan", cursive;
+}
+.dimInput {
+  /* width: 100%; */
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  font-family: "Baloo Chettan", cursive;
+  font-size: 20px;
+  text-align: center;
+}
+
+#paintBox {
+  /* display: block; */
+  display: none;
+}
+#canvas {
+  display: flex;
+  justify-content: center;
+  border: solid 2px black;
+  /* background-image: url('https://www.chicagocanvas.com/wp-content/uploads/2015/05/White-10-oz-Canvas.jpg');
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; */
+  /* background-color: #f0f0f0; */
+  border-radius: 2%;
+}
+.directionText {
+  font-size: 25px;
+  font-family: "Baloo Chettan", cursive;
+}
+#directions1 {
+  font-size: 15px;
+  display: none;
+}
+.paintPixelsStatic {
+  background: white;
+  color: white;
+  font-weight: bold;
+  font-size: 1.5em;
+  text-align: center;
+  width: 50px;
+  height: 50px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  border-radius: 10%;
+}
+#suppliesHere {
+  display: flex;
+  justify-content: space-around;
+}
+#staticSupplies {
+  display: flex;
+  display: flex;
+  justify-content: center;
+  /* -webkit-flex-flow: row; */
+  /* justify-content: space-around; */
+  /* width: 500 px; */
+  /* border-style: solid; */
+  /* border-width: 5px; */
+  /* border-color: black; */
+  line-height: 30px;
+  /* margin-right: auto; */
+  /* margin-left: auto; */
+}
+#loadBox {
+  display: none;
+  justify-content: center;
+}
+#loadInput {
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  font-family: "Baloo Chettan", cursive;
+  font-size: 20px;
+}
+
+#fill {
+  display: none;
+}
+
+.favPixels {
+  background: white;
+  color: white;
+  font-weight: bold;
+  font-size: 1.5em;
+  text-align: center;
+  width: 50px;
+  height: 50px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  border-radius: 10%;
+}
+
+#favSupplies {
+  display: flex;
+  display: flex;
+  justify-content: center;
+  /* -webkit-flex-flow: row; */
+  /* justify-content: space-around; */
+  /* width: 500 px; */
+  /* border-style: solid; */
+  /* border-width: 5px; */
+  /* border-color: black; */
+  line-height: 30px;
+  /* margin-right: auto; */
+  /* margin-left: auto; */
+}
+#helpBox {
+  display: none;
+}
+#helpText {
+  font-size: 25px;
+  font-family: "Baloo Chettan", cursive;
+}
