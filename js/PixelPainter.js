@@ -38,6 +38,7 @@ function createCanvasGrid(width, depth) {
   }
   painter.style.width = 10 * width + "px";
 }
+
 // make random color paint grid below
 function createPaintGrid(width, depth) {
   let artSupplies = document.getElementById("artSupplies");
@@ -97,6 +98,7 @@ function createPaintGridStatic(width, depth) {
       box.addEventListener("click", grabColor);
     }
   }
+
   let boxes = document.getElementsByClassName("paintPixelsStatic");
   boxes[0].style.backgroundColor = "black";
   boxes[1].style.backgroundColor = "gray";
@@ -168,6 +170,7 @@ function eraseEverything() {
     pix[i].style.backgroundColor = "white";
   }
 }
+
 erase.addEventListener("click", eraseSome);
 function eraseSome() {
   paintColor = "white";
@@ -185,6 +188,7 @@ function submitDimensions() {
   document.getElementById("loadBox").style.display = "block";
   document.getElementById("directions1").style.display = "block";
 }
+
 // help button below
 
 help.addEventListener("click", showHelp);
@@ -234,6 +238,7 @@ let title = document.getElementById("title");
 function changeTitleColor() {
   title.style.color = randomColor();
 }
+
 title.addEventListener("mouseover", titleColor);
 
 function titleColor() {
