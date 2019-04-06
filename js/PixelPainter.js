@@ -16,30 +16,6 @@ function randomColor() {
   return colorCode;
 }
 
-// paint function below
-
-// function painting(){
-//   let paintColor = 'black';
-
-//   function setColor(){
-
-//     this.style.backgroundColor = paintColor ;
-//     // return paintColor;
-//   }
-
-//   function grabColor(){
-//     paintColor = this.style.backgroundColor;
-//     console.log(paintColor)
-//     // return paintColor;
-//   }
-
-//   return{
-//     grabColor,
-//     setColor,
-//     paintColor
-//   }
-// }
-
 // make canvasgrid below
 
 function createCanvasGrid(width, depth) {
@@ -58,15 +34,10 @@ function createCanvasGrid(width, depth) {
       box.addEventListener("mousedown", downMouse);
       box.addEventListener("mouseover", dragColor);
       box.addEventListener("mouseup", noDrag);
-      box.addEventListener("click", fillSpace);
-      // box.style.backgroundColor = 'white'
-      // box.addEventListener('click', painting.setColor)
     }
   }
   painter.style.width = 10 * width + "px";
-  // painter.style.height = (10 * depth) + 'px';
 }
-// createCanvasGrid(20, 20);
 // make random color paint grid below
 function createPaintGrid(width, depth) {
   let artSupplies = document.getElementById("artSupplies");
@@ -80,10 +51,8 @@ function createPaintGrid(width, depth) {
       box.id = "paint" + y + "," + x;
       box.style.backgroundColor = randomColor();
       column.appendChild(box);
-
       box.addEventListener("click", grabColor);
       box.addEventListener("click", newRandom);
-      // box.addEventListener('click', painting.grabColor)
     }
   }
 }
@@ -104,11 +73,8 @@ function createFavColors(width, depth) {
       box.id = "favPaint" + y + "," + x;
       box.style.backgroundColor = "white";
       column.appendChild(box);
-
       box.addEventListener("click", grabColor);
       box.addEventListener("click", newFav);
-      // box.addEventListener("click", newRandom);
-      // box.addEventListener('click', painting.grabColor)
     }
   }
 }
@@ -128,10 +94,7 @@ function createPaintGridStatic(width, depth) {
       box.id = "paint" + y + "-" + x;
       box.style.backgroundColor = randomColor();
       column.appendChild(box);
-
       box.addEventListener("click", grabColor);
-
-      // box.addEventListener('click', painting.grabColor)
     }
   }
   let boxes = document.getElementsByClassName("paintPixelsStatic");
@@ -158,16 +121,16 @@ let paintColor = "black";
 function grabColor() {
   if (favClicked === false) {
     paintColor = this.style.backgroundColor;
-    erase.style.backgroundColor = paintColor;
-    clear.style.backgroundColor = paintColor;
-    randomize.style.backgroundColor = paintColor;
-    fill.style.backgroundColor = paintColor;
-    save.style.backgroundColor = paintColor;
-    title.style.color = paintColor;
-    randomizeAllButton.style.backgroundColor = paintColor;
-    grabFavorite.style.backgroundColor = paintColor;
-    help.style.backgroundColor = paintColor;
-    console.log(paintColor);
+    if (paintColor !== 'white') {
+      erase.style.backgroundColor = paintColor;
+      clear.style.backgroundColor = paintColor;
+      randomize.style.backgroundColor = paintColor;
+      save.style.backgroundColor = paintColor;
+      title.style.color = paintColor;
+      randomizeAllButton.style.backgroundColor = paintColor;
+      grabFavorite.style.backgroundColor = paintColor;
+      help.style.backgroundColor = paintColor;
+    }
     return paintColor;
   }
 }
@@ -182,7 +145,6 @@ function setColor() {
 let mouseDown = false;
 
 function downMouse() {
-  console.log("hi");
   this.style.backgroundColor = paintColor;
   mouseDown = true;
   return mouseDown;
@@ -254,21 +216,10 @@ function randomizeColor() {
 function newRandom() {
   if (randomClicked === true) {
     this.style.backgroundColor = randomColor();
-    console.log("testtt");
     randomClicked = false;
   }
 }
 
-let fillClicked = false;
-function fillIsClicked() {
-  if (fillClicked !== true) {
-    fillClicked = true;
-  } else {
-    fillClicked = false;
-  }
-  console.log(fillClicked);
-}
-fill.addEventListener("click", fillIsClicked);
 let randomizeIt = document.getElementById("randomizeAllButton");
 randomizeIt.addEventListener("click", randomizeAll);
 function randomizeAll() {
@@ -286,19 +237,7 @@ function changeTitleColor() {
 title.addEventListener("mouseover", titleColor);
 
 function titleColor() {
-  // setInterval(changeTitleColor, 1000)
   title.style.color = randomColor();
-}
-
-// fill event
-
-function fillSpace() {
-  if (fillClicked === true) {
-    const spaceColor = this.style.backgroundColor;
-
-    let i = 1;
-    i;
-  }
 }
 
 // save and load below
